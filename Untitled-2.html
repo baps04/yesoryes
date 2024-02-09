@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="image" href="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGtreThzcG1lOGZiejhzeHR5aDJtYjFlcDRtNWd3c3ZtOHJ4bjd1YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/d3mnEmgej63Z4RIQ/giphy.gif">
+    <title>Yes or Yes</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #ff4466;
+        }
+
+        #yesButton {
+            font-size: 16px;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        #noButton {
+            font-size: 16px;
+            background-color: #FF0000; /* Red */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 2px;
+            cursor: not-allowed;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <img class="h-[200px]" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGtreThzcG1lOGZiejhzeHR5aDJtYjFlcDRtNWd3c3ZtOHJ4bjd1YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/d3mnEmgej63Z4RIQ/giphy.gif">
+    <h1>Will you be my Valentine?</h1>
+    <button id="yesButton" onclick="alert('Wala Na Bawi-ay Ha')">Yes</button>
+    <button id="noButton" onclick="enlargeYesButton(); cycleNoButtonText();">No</button>
+
+    <script>
+        let yesButtonClickCount = 0;
+        let currentNoButtonTextIndex = 0;
+        function enlargeYesButton() {
+            
+            document.getElementById('yesButton').style.fontSize = '16px';
+            document.getElementById('noButton').style.fontSize = '16px';
+
+            yesButtonClickCount++;
+            const newSize = 16 + yesButtonClickCount * 4;
+            document.getElementById('yesButton').style.fontSize = newSize + 'px';
+        }
+        function cycleNoButtonText() {
+            const noButton = document.getElementById('noButton');
+            const buttonTexts = ["Please?", "Indi gid?", "Ngaa No haw?", "Wala ka naluoy sakon?", "What if ma hibi ko?","Maldita kagid ya", "Daw wala lang ta inagyan ba"];
+            currentNoButtonTextIndex = (currentNoButtonTextIndex + 1) % buttonTexts.length;
+            noButton.textContent = buttonTexts[currentNoButtonTextIndex];
+        }
+    </script>
+</body>
+</html>
